@@ -70,4 +70,24 @@ public class Book {
     public void setNumberOfPage(int numberOfPage) {
         this.numberOfPage = numberOfPage;
     }
+
+
+
+//    public <T> Book setValueForBook (T value, String propertyName) {
+//        }  switch (propertyName){
+//            case "bookName": setBookName((String) value);
+//            case "author" : setAuthor((String) value);
+//
+//        Book carte = Book.builder()
+//                .bookName((String) value)
+//                .author((String) value)
+//                .price(getPrice())
+//                .year(getYear())
+//                .numberOfPage(getNumberOfPage())
+//                .build();
+//        return carte;
+//    }
+
+
+
 }

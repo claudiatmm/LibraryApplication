@@ -8,11 +8,12 @@ public class Library {
 
     List<Shelf> shelves = new ArrayList<>();
 
+    //constructor
     public Library(List<Shelf> shelves) {
         this.shelves = shelves;
     }
 
-
+    //constructor
     public Library(){
     }
 
@@ -35,7 +36,7 @@ public class Library {
     public void printAllBooks(){
         for(Shelf s :shelves){
             for (Book b : s.getBooks()){
-                System.out.println("here are all the books " + b.toString() + " here is the shelf : " +s.getShelfLetter());
+                System.out.println("here is the book: -- " + b.toString() + " here is the shelf : " +s.getShelfLetter());
             }
 
         }
@@ -43,9 +44,7 @@ public class Library {
     }
 
     public Shelf update(ShelfLetter shelfLetter){
-
-
-
         return null;
     }
+
 }

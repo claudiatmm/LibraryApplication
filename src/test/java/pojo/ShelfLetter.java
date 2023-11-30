@@ -13,6 +13,7 @@ public enum ShelfLetter {
     J,
     M,
     N,
+    L,
     O,
     P,
     T,

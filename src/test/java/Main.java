@@ -1,10 +1,29 @@
+import method.ManageBooks;
+import method.MyException;
 import pojo.Library;
+import pojo.ShelfLetter;
+import user.Admin;
 
 import static method.ManageBooks.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MyException {
+
+//        try {
+//            System.out.println(1/0);
+//            System.out.println(2/2);
+//        }
+//        //intra numai daca so aruncat exceptie
+//        catch (Exception e){
+//            System.out.println(e);
+//        }
+//        // intra mereu aici
+//        finally {
+//            System.out.println("ceva");
+//        }
+//        System.out.println("test");
+
 
         Library library = new Library();
 
@@ -20,14 +39,44 @@ public class Main {
         addNewBook(14, "Kerri Maniscalco", "THRONE OF THE FALLEN", 2022,100, library);
 
 
+        System.out.println(" ******--------------------------------********");
         library.printAllBooks();
-        System.out.println("this is the size of shelves " + library.getShelves().size());
+        System.out.println("--------------------------------");
+        System.out.println("------- this is the size of shelves --------- : " + library.getShelves().size());
+
         updateBook(library, "FOURTH WING", 2000);
+        System.out.println("--------------------------------");
         library.printAllBooks();
+
+        System.out.println("--------------------------------");
         deleteBook(library,"Hannah Grace");
 
         System.out.println("--------------------------------");
         library.printAllBooks();
+
+
+        updateBookT(library, "WILDFIRE", "test", "bookName");
+        library.printAllBooks();
+
+        requiredBook(library, "LESSONS IN CHEMISTRY");
+        System.out.println("--------------------------------");
+        displayBookBaseOnCondition(library);
+        System.out.println("--------------------------------");
+        displayBookBaseOnConditionTwo(library);
+        System.out.println("--------------------------------");
+        cheapestBook(library);
+        System.out.println("--------------------------------");
+
+        priceBookManyPage(library);
+
+        displayBooksByLetter(library, ShelfLetter.L);
+
+
+//
+//        Admin admin = new Admin();
+//        admin.deleteAllBook(library);
+//        System.out.println("--------------------------------");
+//        library.printAllBooks();
 
     }
 }
