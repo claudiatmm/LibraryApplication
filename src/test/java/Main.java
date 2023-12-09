@@ -3,6 +3,7 @@ import method.MyException;
 import pojo.Library;
 import pojo.ShelfLetter;
 import user.Admin;
+import user.UserOne;
 
 import static method.ManageBooks.*;
 
@@ -26,7 +27,6 @@ public class Main {
 
 
         Library library = new Library();
-
 
         addNewBook(12, "Hannah Grace", "WILDFIRE", 2021, 150, library);
         addNewBook(25, "Rebecca Yarros", "FOURTH WING", 2001,200, library);
@@ -69,14 +69,24 @@ public class Main {
 
         priceBookManyPage(library);
 
-        displayBooksByLetter(library, ShelfLetter.L);
+        displayBooksByLetter(library, ShelfLetter.T);
+        System.out.println("--------------------------------");
+        filterShelfByLetter(library,ShelfLetter.T);
+        System.out.println("--------------------------------");
+        booksDisplayByYear(library, 2010);
 
 
-//
-//        Admin admin = new Admin();
-//        admin.deleteAllBook(library);
-//        System.out.println("--------------------------------");
-//        library.printAllBooks();
+        Admin admin = new Admin();
+        admin.deleteAllBook(library);
+
+
+        System.out.println("--------------------------------");
+        library.printAllBooks();
+        UserOne userOne = new UserOne();
+        userOne.rentBook(library,"SECOND ACT");
+        userOne.userBookDisplay();
 
     }
+
+
 }

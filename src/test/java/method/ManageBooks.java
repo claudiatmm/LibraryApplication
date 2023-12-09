@@ -132,11 +132,11 @@ public class ManageBooks {
     public static void cheapestBook(Library library) {
         Book bookP = null;
         List<Book> books = new ArrayList<>();
+        //forEach() - doar parcurge lista - nu returneaza ceva doar parcurg
         library.getShelves().stream().forEach(i -> books.addAll(i.getBooks()));
         bookP = books.stream().min(Comparator.comparing(Book::getPrice)).get();
         System.out.println("The cheapest book is: " + bookP.getBookName() + " with price: " + bookP.getPrice());
     }
-
 
 
     //calculate the price of all books which have > 300 pages
@@ -163,7 +163,7 @@ public class ManageBooks {
                     break;
 
                 } else {
-                    throw new MyException("Please try another one capital letter");
+                    throw new MyException("Please try another capital letter");
                 }
             }
             catch (MyException exception){
@@ -174,6 +174,43 @@ public class ManageBooks {
 
 
 
-    // filtrez rafturile care au litera "X"
+    // filter shelf with letter "X"
+    public static void filterShelfByLetter(Library library, ShelfLetter shelfLetter){
+     for (Shelf shelf : library.getShelves()){
+         if(shelf.getShelfLetter().equals(shelfLetter)){
+             System.out.println("here is your book" + shelf.getBooks() +" for letter:  " + shelfLetter);
+             break;
+         }
+     }
+    }
+
+
+    // method with exception - show books with year > 2010 else throw exception
+    public static void booksDisplayByYear(Library library, int year) throws MyException {
+        List<Book> listBooks = new ArrayList<>();
+        for(Shelf shelf : library.getShelves()){
+//            List<Book> listBooks = new ArrayList<>();
+            for(Book book : shelf.getBooks()){
+                try {
+                    if (book.getYear() > year) {
+                        System.out.println("Here is the list with books > " + year + ": " + book);
+                        // in acest caz se suprascrie valoarea
+                        //listBooks = (shelf.getBooks().stream().filter(i -> i.getYear() > year).collect(Collectors.toList())
+                        // in acest caz adaug
+                       listBooks.addAll(shelf.getBooks().stream().filter(i -> i.getYear() > year).collect(Collectors.toList()));
+
+                    } else {
+                        throw new MyException("EXCEPTION ERROR");
+                    }
+                }
+                catch (MyException e){
+                    System.out.println("exception is catch here " + e);
+                }
+            }
+            System.out.println("Here is listBooks with stream :" +listBooks.size());
+        }
+    }
+
+
 
 }

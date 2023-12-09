@@ -23,10 +23,8 @@ public class UserOne {
 
 
     //display all the books user have on his name
-
-    public void userBookDisplay(Library library){
-
-        System.out.println("The user have a number of : " + userBooks.size() + "book's");
+    public void userBookDisplay(){
+        System.out.println("The user have a number of : " + userBooks.size() + " book's");
     }
 
 }
